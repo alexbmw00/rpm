@@ -1,0 +1,12 @@
+[Unit]
+Description=Very tiny C HTTP Server
+After=network.target remote-fs.target nss-lookup.target
+Documentation=man:tiny(1)
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/tiny
+ExecStart=/usr/bin/tiny $PORT $DOCUMENT_ROOT
+
+[Install]
+WantedBy=multi-user.target
